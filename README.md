@@ -1,4 +1,5 @@
-#Unplug -- An Essential Tool for Rapid Plugin Development
+#Unplug
+###_An Essential Tool for Rapid Plugin Development_
 
 
 ##Overview
