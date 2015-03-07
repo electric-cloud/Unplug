@@ -25,9 +25,48 @@ read(STDIN, $raw, $ENV{'CONTENT_LENGTH'});
 # Create the CGI object we'll need later on.
 my $cgi = new CGI;
 
-# Extract the property value from the XML posted to our STDIN.
-my $xp = new XML::XPath($raw);
-my $v = $xp->findvalue('/responses/response[@requestId="v"]/property/value');
+my $v = '';
+
+# Test if the "v=..." parameter was specified in the URL
+my $pn = $cgi->url_param('v');
+$pn = $cgi->url_param('V') unless ($pn); # case-insensitive, for sloppy users
+if ($pn) {
+
+    # We have a property path - read property ourselves
+    my $ec = ElectricCommander->new({'abortOnError'=>0});
+
+    # Permit certain sloppiness in the property path passed in
+    $pn =~ s|^/server/unplug/||;    # be lenient with over-spec'ing
+    $pn =~ s|^/||;                  # get rid of leading slash
+
+    # Fetch property and extract result (including error, if present)
+    my $xp = $ec->getProperty('/server/unplug/' . $pn);
+    #$v = "DEBUG\n" . $xp->findnodes_as_string("/") . "\n";
+    if ($xp->findvalue('/responses/error/code')->value()) {
+
+        # Oops, went wrong - so kraft an error message to display
+        $v .= "<!-- HTML -->\n" .
+              '<h1>Error</h1>' .
+              '<p/><b>Code:&#160;&#160;</b>' .
+              CGI::escapeHTML($xp->findvalue('/responses/error/code')->value()) .
+              '<p/><b>Message:&#160;&#160;</b>' .
+              CGI::escapeHTML($xp->findvalue('/responses/error/message')->value()) .
+              '<p/><b>Details:</b><br/><pre>' .
+              CGI::escapeHTML($xp->findvalue('/responses/error/details')->value()) .
+              '</pre>';
+    } else {
+
+        # Property read and expanded ok, fetch the value
+        $v .= $xp->findvalue('/responses/response/property/value')->value();
+    }
+
+} else {
+
+    # Extract the property value from the XML posted to our STDIN.
+    my $xp = new XML::XPath($raw);
+    $v = $xp->findvalue('/responses/response[@requestId="v"]/property/value');
+
+}
 
 # Use some hueristics to try to guess file content.
 my $c = ($v =~ m|^(.*?)$|ms)[0];
