@@ -95,6 +95,17 @@ if ($c=~ m|^\s*\<.*xhtml.*\>|i) {
     # Put standard output back the correct way
     open(STDOUT, ">&TMPOUT");
 
+} elsif ($c=~ m|^\s*//.*dsl|i) {
+	# Create a Commander API handle
+    my $ec = ElectricCommander->new({'abortOnError'=>0});
+    # Run the DSL code
+	my $dslResponse = $ec->evalDsl("$v")->findvalue('/responses')->value();
+	# Trim everything after </html>
+	foreach my $line (split /^/m, $dslResponse) {
+	   $HTML .= $line;
+	   if ($line =~ m/<\/html>/) {last};
+	}
+	
 } elsif ($v) {
     # Normal (plain) text was provided, wrap in <pre> tags.
     # (Note: the leading space here is required for MS IE6)

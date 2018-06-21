@@ -25,7 +25,7 @@
   </path>
   <property name="gwt.path.extras" value="extras" />
 
-  <import file="D:/CommanderSDK/build/buildTargets.xml" />
+  <import file="C:\Program Files\Electric Cloud\CommanderSDK\build\buildTargets.xml" />
 
   <target name="package.post"
 	  description="Copies the jar file to to the top level">

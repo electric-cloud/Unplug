@@ -113,6 +113,12 @@
         <value></value>
       </property>
       <property>
+        <propertyName>v_examplea</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
         <propertyName>ec_setup</propertyName>
         <description>Perl script executed during promotion</description>
         <expandable>1</expandable>

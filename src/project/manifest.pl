@@ -9,6 +9,7 @@
   ['//project/propertySheet/property[propertyName="v_example7"]/value', 'parameterpanel.pl'],
   ['//project/propertySheet/property[propertyName="v_example8"]/value', 'jobchart.pl'      ],
   ['//project/propertySheet/property[propertyName="v_example9"]/value', 'empty.txt'        ],
+  ['//project/propertySheet/property[propertyName="v_examplea"]/value', 'projectList.dsl'  ],
 
   ['//project/propertySheet/property[propertyName="ec_setup"]/value',   'ec_setup.pl'      ],
 
