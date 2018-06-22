@@ -67,7 +67,7 @@ if ($promoteAction eq 'promote') {
 	{description=>'Content to be displayed by the @PLUGIN_KEY@ plugin main page',
 	 value=>'$' . '[/plugins/@PLUGIN_KEY@/project/v_example2]',
 	 expandable=>'1'});
-    foreach my $i (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a") {
+    foreach my $i (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z") {
 	$commander->createProperty("/server/@PLUGIN_KEY@/v$i",
 	    {description=>"Content to be displayed by the @PLUGIN_KEY@ plugin subpage $i",
 	     value=>'$' . '[/plugins/@PLUGIN_KEY@/project/v_example' . $i . ']',

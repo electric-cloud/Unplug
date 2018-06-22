@@ -119,6 +119,156 @@
         <value></value>
       </property>
       <property>
+        <propertyName>v_exampleb</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplec</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_exampled</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplee</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplef</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_exampleg</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_exampleh</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplei</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplej</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplek</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplel</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplem</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplen</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_exampleo</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplep</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_exampleq</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_exampler</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examples</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplet</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_exampleu</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplev</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplew</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplex</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_exampley</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
+        <propertyName>v_examplez</propertyName>
+        <description>An empty page.</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
+      <property>
         <propertyName>ec_setup</propertyName>
         <description>Perl script executed during promotion</description>
         <expandable>1</expandable>
