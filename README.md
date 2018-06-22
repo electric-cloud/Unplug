@@ -1,10 +1,7 @@
-#Unplug
-###_An Essential Tool for Rapid Plugin Development_
+# Unplug
+_An Essential Tool for Rapid Plugin Development_
 
-
-##Overview
-
-
+## Overview
   This plugin is a completely flexible plugin framework that displays a
 page built from content read from an ElectricCommander property.
 
@@ -13,7 +10,7 @@ page for ElectricCommander users, performing rapid prototyping of plugin
 logic as well as plugin presentation, and serving as a training aid to
 speed learning about ElectricCommander plugins and how they work.
 
-##Quick Installation
+## Quick Installation
 
 
   Download the plugin jar file, then install and promote the plugin in
@@ -23,7 +20,7 @@ on your User Details page.  Select "Unplug View" from the "Tab View"
 list box, and click "OK".  A new sub-tab (named "Un") should appear
 beneath your normal Home tab in the UI.
 
-##Obtaining Help
+## Obtaining Help
 
   Help documentation is available from the normal "Help" link (top-right
 corner on the GUI) when viewing the "Un" tab.  The provided examples
