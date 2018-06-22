@@ -5,15 +5,15 @@
   <h3>Overview</h3>
   <p>This plugin is a completely flexible plugin framework that displays
 a page built from content read from an ElectricCommander property.
-Typical uses include implementing a simple &quot;News of the Day&quot;
+Typical uses include implementing a simple "News of the Day"
 or status page for ElectricCommander users, performing rapid
 prototyping of plugin logic as well as plugin presentation, and
 serving as a training aid to speed learning about ElectricCommander
 plugins and how they work.</p>
   <h3>Views</h3>
-  <p>Promoting the plugin installs a view named &quot;Unplug View&quot;.
+  <p>Promoting the plugin installs a view named "Unplug View".
 This view adds a custom page as a sub-tab of the standard
-&quot;Home&quot; tab.  As usual, custom views can be created to move
+"Home" tab.  As usual, custom views can be created to move
 the page anywhere desired in the GUI.</p>
   <h3>Content Type</h3>
   <p>The content of the property that is processed to create the
@@ -22,12 +22,12 @@ type is determined by searching for a pattern in the first line of text
 in the expanded property.</p>
   <h4>HTML</h4>
   <p>If that first line contains an HTML comment tag which mentions
-the string &quot;html&quot; (&lt;!-- html --&gt; for example), then
+the string "html" (&lt;!-- html --&gt; for example), then
 the property value is assumed to be valid HTML and is sent directly
 to the browser for display, with no further processing.</p>
   <h4>XHTML</h4>
   <p>If that first line contains an HTML comment tag which mentions
-the string &quot;xhtml&quot; (&lt;!-- xhtml --&gt; for example), then
+the string "xhtml" (&lt;!-- xhtml --&gt; for example), then
 the property value is expected to be XHTML.  It is checked for validity,
 and sent to the browser for display. Javascript code embedded into
 the XHTML page using &lt;script&gt; tags will processed (unlike HTML
@@ -52,7 +52,7 @@ browser for display.</p>
   <h3>Examples</h3>
   <p>A number of examples are provided.  The easiest way to view them
 with @PLUGIN_KEY@ is to set the /server/@PLUGIN_KEY@/v property to
-&quot;point&quot; to the desired example.  For example, in order to view
+"point" to the desired example.  For example, in order to view
 example 1, set the /server/@PLUGIN_KEY@/v property to:<br/>
 <code>$[/plugins/@PLUGIN_KEY@/project/v_example1]</code><br/>
 In order to extract the source code for each example, simply reference
@@ -60,14 +60,14 @@ the same property.  For example, the following ectool command will
 display the source code for example 1:</p>
   <p><code>ectool getProperty /plugins/@PLUGIN_KEY@/project/v_example1 --expand 0
 </code></p>
-  <h4>Example 1 - Text</h4>
+  <h4><a href="../@PLUGIN_KEY@/un_run1">Example 1 - Text</a></h4>
   <p><code>/plugins/@PLUGIN_KEY@/project/v_example1</code></p>
   <p>The most basic of the examples, this one simply displays text.</p>
-  <h4>Example 2 - HTML</h4>
+  <h4><a href="../@PLUGIN_KEY@/un_run2">Example 2 - HTML</a></h4>
   <p><code>/plugins/@PLUGIN_KEY@/project/v_example2</code></p>
   <p>This example shows how one might create a simple mockup of a
 plugin page using nothing more than simple static HTML.</p>
-  <h4>Example 3</h4>
+  <h4><a href="../@PLUGIN_KEY@/un_run3">Example 3 - property expansion</a></h4>
   <p><code>/plugins/@PLUGIN_KEY@/project/v_example3</code></p>
   <p>Example 3 demonstrates how one can use property expansion
 combined with /javascript special property references in order
@@ -84,13 +84,13 @@ of code.  Refer to example 1, and consider how various build
 and deploy procedures might be able to write information into
 properties and property sheets in such a way that the content
 displayed in that page might actually be real, live content.</p>
-  <h4>Example 4</h4>
+  <h4><a href="../@PLUGIN_KEY@/un_run4">Example 4 - perl</a></h4>
   <p><code>/plugins/@PLUGIN_KEY@/project/v_example4</code></p>
   <p>Some applications are best served by writing actual code.
 Example 3 shows how to have Perl logic generate the HTML to be
 displayed. Also noteworthy is the example of how to properly
 HTML-encode text that is sent to the browser.</p>
-  <h4>Example 5</h4>
+  <h4><a href="../@PLUGIN_KEY@/un_run5">Example 5 - perl jobs</a></h4>
   <p><code>/plugins/@PLUGIN_KEY@/project/v_example5</code></p>
   <p>Example 5 is a more ambitious bit of Perl logic.  The use case
 addressed by this example is the need to be able to display, at
@@ -103,7 +103,7 @@ within the plugin, how to process the result set from a getJobs
 (or findObjects) call, and also illustrates how one can create
 and embed hyperlinks to other Commander pages into the generated
 HTML.</p>
-  <h4>Example 6</h4>
+  <h4><a href="../@PLUGIN_KEY@/un_run6">Example 6 - embedded javascript</a></h4>
   <p><code>/plugins/@PLUGIN_KEY@/project/v_example6</code></p>
   <p>Example 6 adds dynamic refresh to the previous example by
 embedded javascript using the &lt;script&gt; tag.</p>
@@ -113,20 +113,20 @@ embedded javascript using the &lt;script&gt; tag.</p>
 When correctly configured, this page will appear when a specific
 Commander procedure is run from any place in the Commander Web UI.
 </p>
-<h4>Example a</h4>
+<h4><a href="../@PLUGIN_KEY@/un_runa">Example a - DSL</a></h4>
   <p><code>/plugins/@PLUGIN_KEY@/project/v_examplea</code></p>
   <p>Example a demonstrates how to use DSL to generate a report.  In
   this case the DSL command getProjects() is used to create a table
   listing of projects.
 </p>
-  <p>In addition to setting the &quot;v&quot; property correctly,
+  <p>In addition to setting the "v" property correctly,
 one other step must be performed.  It is necessary to set the
-&quot;customType&quot; property on the procedure in question in
+"customType" property on the procedure in question in
 order to tell the Commander UI that we want this plugin to execute
 in place of the normal runProcedure parameter page.  This example
 is written specifically for the
-&quot;Build-Test-Release Template With Sample Errors&quot;
-procedure in the &quot;EC-Examples&quot; project. Set the
-&quot;customType&quot; property on that procedure to:
+"Build-Test-Release Template With Sample Errors"
+procedure in the "EC-Examples" project. Set the
+"customType" property on that procedure to:
 <code>$[/plugins/@PLUGIN_KEY@]/unRunProcedure</code></p>
 </componentContainer>
