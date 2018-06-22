@@ -5,7 +5,10 @@
 
   <!-- Plugin-specific properties -->
   <property name="pluginKey" value="unplug" />
-  <property name="pluginVersion" value="2.0.4" />
+  <property name="pluginVersion" value="2.1.0" />
+  <!--
+		2.1.0 - Add support for DSL page generation
+  -->
 
   <path id="extras">
     <!-- Add extra jars that need to be in the classpath for building the 
