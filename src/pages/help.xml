@@ -14,7 +14,8 @@ plugins and how they work.</p>
   <p>Promoting the plugin installs an "Unplug" menu root in the Flow
 UI which includes menu items for all Unplug view (v0-vz). The menu
 item labels are a combination of the view name and view parameter
-description.</p>
+description. To refresh the Unplug menu in Flow, run the unplug plugin procedure,
+"Add Unplug to Flow Menu"</p>
   <h3>Content Type</h3>
   <p>The content of the property that is processed to create the
 page to be displayed can be HTML, plain text, perl or or DSL.  The
