@@ -274,6 +274,12 @@
         <expandable>1</expandable>
         <value></value>
       </property>
+      <property>
+        <propertyName>AddFullMenuToFlow</propertyName>
+        <description>DSL to create Add and Remove unplug menu to Flow</description>
+        <expandable>1</expandable>
+        <value></value>
+      </property>
     </propertySheet>
   </project>
 </exportedData>

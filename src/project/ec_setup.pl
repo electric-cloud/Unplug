@@ -89,7 +89,21 @@ if ($promoteAction eq 'promote') {
 		     {description=>'Unplug View', value=>$unView});
     $commander->setProperty("/server/ec_ui/availableViews/unViewAll",
 		     {description=>'Unplug View, Top-level with sub-tabs', value=>$unViewAll});
+	
+	# Run DSL to create procedures to add and remove Unplug page menus to Flow menu
+	my $xp = $commander->getProperty("/projects/${pluginName}/AddFullMenuToFlow");
+	my $AddFullMenuToFlow = $xp->findvalue('/responses/response/property/value')->value(); 
+	$commander->evalDsl({dsl => "$AddFullMenuToFlow",parameters=>qq(
+                     {
+                           "pluginName":"$pluginName"
+                     }
+              )});
+	# Run the procedure that adds Unplug menus to Flow menus
+	$commander->runProcedure({projectName=>$pluginName, procedureName=>"Add Unplug to Flow Menu"});
 } elsif ($promoteAction eq 'demote') {
     $batch->deleteProperty("/server/ec_ui/availableViews/unView");
     $batch->deleteProperty("/server/ec_ui/availableViews/unViewAll");
+	
+	# Run the procedure that removes Unplug menus to Flow menus
+	$commander->runProcedure({projectName=>$pluginName, procedureName=>"Remove Unplug from Flow Menu"});
 }

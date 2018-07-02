@@ -11,10 +11,10 @@ prototyping of plugin logic as well as plugin presentation, and
 serving as a training aid to speed learning about ElectricCommander
 plugins and how they work.</p>
   <h3>Views</h3>
-  <p>Promoting the plugin installs a view named "Unplug View".
-This view adds a custom page as a sub-tab of the standard
-"Home" tab.  As usual, custom views can be created to move
-the page anywhere desired in the GUI.</p>
+  <p>Promoting the plugin installs an "Unplug" menu root in the Flow
+UI which includes menu items for all Unplug view (v0-vz). The menu
+item labels are a combination of the view name and view parameter
+description.</p>
   <h3>Content Type</h3>
   <p>The content of the property that is processed to create the
 page to be displayed can be HTML, plain text, perl or or DSL.  The

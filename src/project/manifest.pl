@@ -12,6 +12,7 @@
   ['//project/propertySheet/property[propertyName="v_examplea"]/value', 'projectList.dsl'  ],
 
   ['//project/propertySheet/property[propertyName="ec_setup"]/value',   'ec_setup.pl'      ],
+  ['//project/propertySheet/property[propertyName="AddFullMenuToFlow"]/value',   'AddFullMenuToFlow.groovy'      ],
 
   ['//property[propertyName="unplug.js"]/value',                'lib/unplug.js'            ],
   ['//property[propertyName="jquery.js"]/value',                'lib/jquery.js'            ],

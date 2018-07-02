@@ -5,8 +5,9 @@
 
   <!-- Plugin-specific properties -->
   <property name="pluginKey" value="unplug" />
-  <property name="pluginVersion" value="2.1.0" />
+  <property name="pluginVersion" value="2.2.0" />
   <!--
+		2.2.0 - Add Unplug pages to Flow menu
 		2.1.0 - Add support for DSL page generation
   -->
 
