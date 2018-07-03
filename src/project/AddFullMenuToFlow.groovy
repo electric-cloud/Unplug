@@ -20,7 +20,7 @@ The typical resulting menu property will be:
 			<label>A description</label>
 			<url>plugins/unplug/un_run0</url>
 		</tab>
-		<!-- etc ->
+		<!-- etc -->
 	</tab>
 </menu>
 

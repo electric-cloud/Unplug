@@ -102,7 +102,7 @@
       </property>
       <property>
         <propertyName>v_example8</propertyName>
-        <description>An empty using the javascript flot charting library.</description>
+        <description>An example using the javascript flot charting library.</description>
         <expandable>1</expandable>
         <value></value>
       </property>
@@ -114,7 +114,7 @@
       </property>
       <property>
         <propertyName>v_examplea</propertyName>
-        <description>An empty page.</description>
+        <description>An example using DSL to generate a table of projects.</description>
         <expandable>1</expandable>
         <value></value>
       </property>
