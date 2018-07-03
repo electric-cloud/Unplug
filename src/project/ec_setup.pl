@@ -100,10 +100,12 @@ if ($promoteAction eq 'promote') {
               )});
 	# Run the procedure that adds Unplug menus to Flow menus
 	$commander->runProcedure({projectName=>$pluginName, procedureName=>"Add Unplug to Flow Menu"});
+	$commander->runProcedure({projectName=>$pluginName, procedureName=>"Add Unplug to Commander Menu"});
 } elsif ($promoteAction eq 'demote') {
     $batch->deleteProperty("/server/ec_ui/availableViews/unView");
     $batch->deleteProperty("/server/ec_ui/availableViews/unViewAll");
 	
 	# Run the procedure that removes Unplug menus to Flow menus
 	$commander->runProcedure({projectName=>$pluginName, procedureName=>"Remove Unplug from Flow Menu"});
+	$commander->runProcedure({projectName=>$pluginName, procedureName=>"Remove Unplug from Commander Menu"});
 }
