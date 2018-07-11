@@ -5,8 +5,9 @@
 
   <!-- Plugin-specific properties -->
   <property name="pluginKey" value="unplug" />
-  <property name="pluginVersion" value="2.2.2" />
+  <property name="pluginVersion" value="2.2.3" />
   <!--
+		2.2.3 - Remove version from the plugin jar file name
 		2.2.2 - Add Unplug views to Commander menus, remove empty views
 		2.2.1 - Format at Help according to EC plugin standards
 		2.2.0 - Add Unplug pages to Flow menu
@@ -37,6 +38,6 @@
 	  description="Copies the jar file to to the top level">
     <copy overwrite="yes"
 	  file="${out.dir}/${pluginKey}.jar"
-	  toFile="./${pluginKey}-${pluginVersion}.jar"/>
+	  toFile="./${pluginKey}.jar"/>
   </target>
 </project>
