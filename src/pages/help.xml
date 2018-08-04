@@ -18,14 +18,28 @@
         <p>Revised on July 3, 2018</p>
         <p>
             This plugin is a completely flexible plugin framework that displays
-			a page built from content read from an ElectricCommander property.
+			a page built from content read from an ElectricFlow property.
 			Typical uses include implementing a simple "News of the Day"
-			or status page for ElectricCommander users, performing rapid
+			or status page for ElectricFlow users, performing rapid
 			prototyping of plugin logic as well as plugin presentation, and
-			serving as a training aid to speed learning about ElectricCommander
+			serving as a training aid to speed learning about ElectricFlow
 			plugins and how they work.
         </p>
-
+	<h1>Display</h1>
+	<p>In order to display the content of your properties, they should be created under /server/unplug. For your convenience
+		properties v, v0 to v9, va to vz have alrteady been created. You can display their content with Unplug by pointing your 
+		browser to 
+		<table>
+			<tr><th>Property</th><th>URL</th></tr>
+			<tr><td>v</td><td>https://<SERVER>/commander/pages/unplug/un_run</td></tr>
+			<tr><td>v0</td><td>https://<SERVER>/commander/pages/unplug/un_run0</td></tr>
+			<tr><td>v9/td><td>https://<SERVER>/commander/pages/unplug/un_run9</td></tr>
+			<tr><td>va</td><td>https://<SERVER>/commander/pages/unplug/un_runa</td></tr>
+			<tr><td>vz</td><td>https://<SERVER>/commander/pages/unplug/un_runz</td></tr>
+			<tr><td>any property in /server/unplug<br/>
+				XXX</td><td>https://<SERVER>/commander/pages/unplug/un_run?v=XXX</td></tr>
+		</table>
+	</p>
         <h1>Contents</h1>
         <ul>
             <li>
