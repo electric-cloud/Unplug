@@ -2,7 +2,8 @@
   <author>Electric Cloud</author>
   <authorUrl>http://www.electric-cloud.com</authorUrl>
   <category>Other</category>
-  <commander-version min="4.0" />
+  <pluginWizardBased>true</pluginWizardBased>
+  <commander-version min="6.0" />
   <customTypes>
     <customType name="unRunProcedure">
       <page definition="pages/un_run.xml" pageName="runProcedure" />
@@ -48,6 +49,7 @@
     </customType>
   </customTypes>
   <depends>EC-Core</depends>
+  <depends min="1.4.1">EC-PluginManager</depends>
   <description>A flexible plugin to display the content of proeprties in different formats.</description>
   <help>help.xml</help>
   <key>unplug</key>
