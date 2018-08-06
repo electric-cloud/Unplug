@@ -1,0 +1,126 @@
+<exportedData buildLabel="build_3.9_39682_OPT_2011.03.18_18:10:08" buildVersion="3.9.1.39682" passkey="5eb36acd264d63d548072131e9545aed6300f458" version="47" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="commander.xsd">
+  <exportPath>/projects/unplug-2.2.5.56</exportPath>
+  <project>
+    <projectName>unplug-2.2.5.56</projectName>
+    <propertySheet>
+      <property>
+        <expandable>0</expandable>
+        <propertyName>ec_setup</propertyName>
+        <value>my $unView =
+'&lt;view&gt;
+  &lt;base&gt;Default&lt;/base&gt;
+  &lt;tab&gt;
+    &lt;label&gt;Home&lt;/label&gt;
+    &lt;tab&gt;
+      &lt;label&gt;Un&lt;/label&gt;
+      &lt;position&gt;3&lt;/position&gt;
+      &lt;url&gt;pages/unplug/un_run&lt;/url&gt;
+    &lt;/tab&gt;
+  &lt;/tab&gt;
+&lt;/view&gt;';
+
+my $unViewAll =
+'&lt;view&gt;
+  &lt;base&gt;Default&lt;/base&gt;
+  &lt;tab&gt;
+    &lt;label&gt;UnTab&lt;/label&gt;
+    &lt;position&gt;2&lt;/position&gt;
+    &lt;tab&gt;
+      &lt;label&gt;Un1&lt;/label&gt;
+      &lt;position&gt;1&lt;/position&gt;
+      &lt;url&gt;pages/unplug/un_run1&lt;/url&gt;
+    &lt;/tab&gt;
+    &lt;tab&gt;
+      &lt;label&gt;Un2&lt;/label&gt;
+      &lt;position&gt;2&lt;/position&gt;
+      &lt;url&gt;pages/unplug/un_run2&lt;/url&gt;
+    &lt;/tab&gt;
+    &lt;tab&gt;
+      &lt;label&gt;Un3&lt;/label&gt;
+      &lt;position&gt;3&lt;/position&gt;
+      &lt;url&gt;pages/unplug/un_run3&lt;/url&gt;
+    &lt;/tab&gt;
+    &lt;tab&gt;
+      &lt;label&gt;Un4&lt;/label&gt;
+      &lt;position&gt;4&lt;/position&gt;
+      &lt;url&gt;pages/unplug/un_run4&lt;/url&gt;
+    &lt;/tab&gt;
+    &lt;tab&gt;
+      &lt;label&gt;Un5&lt;/label&gt;
+      &lt;position&gt;5&lt;/position&gt;
+      &lt;url&gt;pages/unplug/un_run5&lt;/url&gt;
+    &lt;/tab&gt;
+    &lt;tab&gt;
+      &lt;label&gt;Un6&lt;/label&gt;
+      &lt;position&gt;6&lt;/position&gt;
+      &lt;url&gt;pages/unplug/un_run6&lt;/url&gt;
+    &lt;/tab&gt;
+    &lt;tab&gt;
+      &lt;label&gt;Un7&lt;/label&gt;
+      &lt;position&gt;7&lt;/position&gt;
+      &lt;url&gt;pages/unplug/un_run7&lt;/url&gt;
+    &lt;/tab&gt;
+    &lt;tab&gt;
+      &lt;label&gt;Un8&lt;/label&gt;
+      &lt;position&gt;8&lt;/position&gt;
+      &lt;url&gt;pages/unplug/un_run8&lt;/url&gt;
+    &lt;/tab&gt;
+  &lt;/tab&gt;
+&lt;/view&gt;';
+
+if ($promoteAction eq 'promote') {
+    # Use createProperty (and ignore errors) so that we do not overwrite existing properties
+    $commander-&gt;abortOnError(0);
+    $commander-&gt;createProperty(&quot;/server/unplug/v&quot;,
+	{description=&gt;'Content to be displayed by the unplug plugin main page',
+	 value=&gt;'$' . '[/plugins/unplug/project/v_example2]',
+	 expandable=&gt;'1'});
+    foreach my $i (0 .. 9, &quot;a&quot; .. &quot;z&quot;) {
+      $commander-&gt;createProperty(&quot;/server/unplug/v$i&quot;, {
+        description=&gt;&quot;Content to be displayed by the unplug plugin subpage $i&quot;,
+	       value=&gt;'$' . '[/plugins/unplug/project/v_example' . $i . ']',
+	        expandable=&gt;'1'
+        });
+    }
+    foreach my $i ('flot', 'jquery', 'unplug') {
+	    $commander-&gt;createProperty(&quot;/server/unplug/lib/use-$i&quot;, {
+	       description=&gt;&quot;XHTML fragment to pull in the $i javascript libraries and dependencies&quot;,
+	       value=&gt;'$' . '[/plugins/unplug/project/lib/use-' . $i . ']',
+	       expandable=&gt;'1'});
+    }
+    # Reset error handling at this point
+    $commander-&gt;abortOnError(1);
+    $commander-&gt;setProperty(&quot;/server/unplug/unplug_doUrl&quot;,
+		     {description=&gt;&quot;URL for the unplug AJAX helper CGI&quot;,
+		      value=&gt;'/commander/plugins/unplug-2.2.5.56/cgi-bin/do.cgi',
+		      expandable=&gt;'0'});
+    $commander-&gt;setProperty(&quot;/server/ec_ui/availableViews/unView&quot;,
+		     {description=&gt;'Unplug View', value=&gt;$unView});
+    $commander-&gt;setProperty(&quot;/server/ec_ui/availableViews/unViewAll&quot;,
+		     {description=&gt;'Unplug View, Top-level with sub-tabs', value=&gt;$unViewAll});
+
+	# Run DSL to create procedures to add and remove Unplug page menus to Flow menu
+  my $xp=$commander-&gt;getProperty(&quot;/server/settings/pluginsDirectory&quot;);
+  my $plugDir=$xp-&gt;findvalue('/responses/response/property/value')-&gt;value();
+	$commander-&gt;evalDsl({
+    dslFile =&gt; &quot;$plugDir/$pluginName/project/AddFullMenuToFlow.groovy&quot;,
+    parameters=&gt;qq({
+      &quot;pluginName&quot;:&quot;$pluginName&quot;
+    }
+  )});
+	# Run the procedure that adds Unplug menus to Flow menus
+	$commander-&gt;runProcedure({projectName=&gt;$pluginName, procedureName=&gt;&quot;Add Unplug to Flow Menu&quot;});
+	$commander-&gt;runProcedure({projectName=&gt;$pluginName, procedureName=&gt;&quot;Add Unplug to Commander Menu&quot;});
+} elsif ($promoteAction eq 'demote') {
+    $batch-&gt;deleteProperty(&quot;/server/ec_ui/availableViews/unView&quot;);
+    $batch-&gt;deleteProperty(&quot;/server/ec_ui/availableViews/unViewAll&quot;);
+
+	# Run the procedure that removes Unplug menus to Flow menus
+	$commander-&gt;runProcedure({projectName=&gt;$pluginName, procedureName=&gt;&quot;Remove Unplug from Flow Menu&quot;});
+	$commander-&gt;runProcedure({projectName=&gt;$pluginName, procedureName=&gt;&quot;Remove Unplug from Commander Menu&quot;});
+}
+</value>
+      </property>
+    </propertySheet>
+  </project>
+</exportedData>

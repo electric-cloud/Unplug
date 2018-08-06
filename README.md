@@ -12,13 +12,32 @@ speed learning about ElectricCommander plugins and how they work.
 
 ## Quick Installation
 
-
   Download the plugin jar file, then install and promote the plugin in
 the normal fashion.  Once promoted, click on your user name (in the
 upper right corner of the Commander Web UI), and select "Edit Settings"
 on your User Details page.  Select "Unplug View" from the "Tab View"
 list box, and click "OK".  A new sub-tab (named "Un") should appear
 beneath your normal Home tab in the UI.
+
+## build
+<p>To build the plugin, you will need to have first to build
+  <a href="https://github.com/electric-cloud/ecpluginbuilder">ecpluginbuilder</a>
+  for your platform.<br/>
+
+  Then simply:
+  <ul>
+    <li>log into your Flow server with "ectool --server SERVER login USER PWD"</li>
+    <li>run "ec-perl ecpluginbuilder.pl", the tool will:
+      <ul>
+        <li>increment the build counter (main version can be changed in the script or with the -version option)</li>
+        <li>build the plugin</li>
+        <li>install the plugin</li>
+        <li>promote the plugin</li>
+      </ul>  
+    </li>
+    </ul>
+</p>
+
 
 ## Obtaining Help
 

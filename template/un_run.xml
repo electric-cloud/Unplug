@@ -1,0 +1,18 @@
+<componentContainer>
+  <helpLink>help</helpLink>
+  <title>@PLUGIN_KEY@ @PLUGIN_VERSION@</title>
+  <component plugin="EC-Core" ref="urlLoader">
+    <style>../../lib/styles/data.css</style>
+    <plugin>unplug</plugin>
+    <version>@PLUGIN_VERSION@</version>
+    <evalScripts>true</evalScripts>
+    <url>cgi-bin/un.cgi</url>
+    <requests>
+      <request requestId="v">
+        <getProperty>
+          <propertyName>/javascript getProperty(&quot;/server/@PLUGIN_KEY@/v&quot;)</propertyName>
+        </getProperty>
+      </request>
+    </requests>
+  </component>
+</componentContainer>
