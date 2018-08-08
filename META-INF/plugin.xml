@@ -1,0 +1,58 @@
+<plugin>
+  <author>Electric Cloud</author>
+  <authorUrl>http://www.electric-cloud.com</authorUrl>
+  <category>Other</category>
+  <pluginWizardBased>true</pluginWizardBased>
+  <commander-version min="6.0" />
+  <customTypes>
+    <customType name="unRunProcedure">
+      <page definition="pages/un_run.xml" pageName="runProcedure" />
+    </customType>
+    <customType name="unRunWorkflow">
+      <page definition="pages/un_run.xml" pageName="runWorkflow" />
+    </customType>
+    <customType name="unEditProject">
+      <page definition="pages/un_run.xml" pageName="editProject" />
+    </customType>
+    <customType name="unEditProcedure">
+      <page definition="pages/un_run.xml" pageName="editProcedure" />
+    </customType>
+    <customType name="unEditWorkflowDefinition">
+      <page definition="pages/un_run.xml" pageName="editWorkflowDefinition" />
+    </customType>
+    <customType name="unEditSchedule">
+      <page definition="pages/un_run.xml" pageName="editSchedule" />
+    </customType>
+    <customType name="unEditCredential">
+      <page definition="pages/un_run.xml" pageName="editCredential" />
+    </customType>
+    <customType name="unEditResource">
+      <page definition="pages/un_run.xml" pageName="editResource" />
+    </customType>
+    <customType name="unEditResourcePool">
+      <page definition="pages/un_run.xml" pageName="editResourcePool" />
+    </customType>
+    <customType name="unEditWorkspace">
+      <page definition="pages/un_run.xml" pageName="editWorkspace" />
+    </customType>
+    <customType name="unEditArtifact">
+      <page definition="pages/un_run.xml" pageName="editArtifact" />
+    </customType>
+    <customType name="unEditRepository">
+      <page definition="pages/un_run.xml" pageName="editRepository" />
+    </customType>
+    <customType name="unEditArtifactVersion">
+      <page definition="pages/un_run.xml" pageName="editArtifactVersion" />
+    </customType>
+    <customType name="unEditProperty">
+      <page definition="pages/un_run.xml" pageName="editProperty" />
+    </customType>
+  </customTypes>
+  <depends>EC-Core</depends>
+  <depends min="1.4.1">EC-PluginManager</depends>
+  <description>A flexible plugin to display the content of proeprties in different formats.</description>
+  <help>help.xml</help>
+  <key>unplug</key>
+  <label>unplug</label>
+  <version>2.2.5.56</version>
+</plugin>

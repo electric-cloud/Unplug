@@ -1,0 +1,275 @@
+<!--
+
+-->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta content="text/html; charset=us-ascii" http-equiv="content-type" />
+    <title>Electric Flow View Generator</title>
+    <link rel="stylesheet" href="../../plugins/@PLUGIN_KEY@/pluginhelp.css" type="text/css" media="screen" />
+</head>
+<body>
+    <div class="help">
+        <h1>@PLUGIN_KEY@</h1>
+        <p>Plugin Version @PLUGIN_VERSION@</p>
+        <hr style="margin-left: -10px; margin-top: 10px; height: 1px; width: 100%; color: #5981BD;" noshade="noshade" />
+        <p>Revised on July 3, 2018</p>
+        <p>
+            This plugin is a completely flexible plugin framework that displays
+			a page built from content read from an ElectricFlow property.
+			Typical uses include implementing a simple "News of the Day"
+			or status page for ElectricFlow users, performing rapid
+			prototyping of plugin logic as well as plugin presentation, and
+			serving as a training aid to speed learning about ElectricFlow
+			plugins and how they work.
+        </p>
+	<h1>Display</h1>
+	<p>In order to display the content of your properties, they should be created under /server/unplug. For your convenience
+		properties v, v0 to v9, va to vz have alrteady been created. You can display their content with Unplug by pointing your
+		browser to
+		<table border="1">
+			<tr><th>Property</th><th>URL</th></tr>
+			<tr><td>v </td><td>https://SERVER/commander/pages/unplug/un_run</td></tr>
+			<tr><td>v0</td><td>https://SERVER/commander/pages/unplug/un_run0</td></tr>
+			<tr><td>v9</td><td>https://SERVER/commander/pages/unplug/un_run9</td></tr>
+			<tr><td>va</td><td>https://SERVER/commander/pages/unplug/un_runa</td></tr>
+			<tr><td>vz</td><td>https://SERVER/commander/pages/unplug/un_runz</td></tr>
+			<tr><td>any property in /server/unplug aka <br/>
+				XXX</td><td>https://SERVER/commander/pages/unplug/un_run?v=XXX</td></tr>
+		</table>
+	</p>
+        <h1>Contents</h1>
+        <ul>
+            <li>
+                <a href="#views">Views</a>
+            </li>
+            <li>
+                <a href="#contenttype">Content Type</a>
+            </li>
+			<ul>
+				<li>
+					<a href="#html">HTML</a>
+				</li>
+				<li>
+					<a href="#xhtml">XHTML</a>
+				</li>
+				<li>
+					<a href="#perl">Perl</a>
+				</li>
+				<li>
+					<a href="#dsl">DSL</a>
+				</li>
+				<li>
+					<a href="#text">Text</a>
+				</li>
+			</ul>
+			<li>
+				<a href="#examples">Examples</a>
+			</li>
+		</ul>
+
+        <div id="views">
+			<h2>Views</h2>
+				<p>
+					Promoting the plugin installs an "Unplug" menu root in the Flow
+					UI which includes menu items for all Unplug view (v0-vz). The menu
+					item labels are a combination of the view name and view parameter
+					description. To refresh the Unplug menu in Flow, run the unplug plugin procedure,
+					"Add Unplug to Flow Menu"
+				</p>
+        </div>
+        <div id="contenttype">
+			<h2>Content Type</h2>
+			<p>
+				The content of the property that is processed to create the
+				page to be displayed can be HTML, XHTML, plain text, or generated from ec-perl or DSL.  The
+				type is determined by searching for a pattern in the first line of text
+				in the expanded property.
+			</p>
+        </div>
+        <div id="html">
+			<h3>HTML</h3>
+			<p>
+				If that first line contains an HTML comment tag which mentions
+				the string "html" (&lt;!-- html --&gt; for example), then
+				the property value is assumed to be valid HTML and is sent directly
+				to the browser for display, with no further processing.
+			</p>
+        </div>
+        <div id="xhtml">
+			<h3>XHTML</h3>
+			<p>
+				If that first line contains an HTML comment tag which mentions
+				the string "xhtml" (&lt;!-- xhtml --&gt; for example), then
+				the property value is expected to be XHTML.  It is checked for validity,
+				and sent to the browser for display. Javascript code embedded into
+				the XHTML page using &lt;script&gt; tags will processed (unlike HTML
+				content, where the script tags will be silently ignored.
+			</p>
+        </div>
+		<div id="perl">
+			<h3>Perl</h3>
+			<p>
+				Perl code is identified by the presence of a string that looks
+				like the standard means to identify a perl or ec-perl script (#!perl,
+				#!ec-perl, or similar).  In this case, the expanded property value
+				is executed using the perl eval() statement, and the script is
+				expected to write the generated HTML or XHTML page into the $HTML
+				or $XHTML variables, respectively.  Note that the script should never
+				print anything, nor should it ever call die() or exit().
+			</p>
+        </div>
+        <div id="dsl">
+			<h3>DSL</h3>
+			<p>
+				DSL code is identified by the presence the string //dsl on the first
+				line.  In this case, the expanded property value
+				is executed using the ec-perl Electric FLow API evalDsl() statement,
+				and the script is expected to output HTML code.
+			</p>
+        </div>
+		<div id="text">
+			<h3>Text</h3>
+			<p>
+				In all other cases, the property value is assumed to be raw text,
+				and is wrapped with an HTML &lt;pre&gt; tag and then sent to the
+				browser for display.
+			</p>
+        </div>
+		<div id="examples">
+			<h2>Examples</h2>
+			<p>
+				A number of examples are provided that illustrate the various types of content supported.
+			</p>
+			<h4><a href="../@PLUGIN_KEY@/un_run1">Example 1 - Text</a></h4>
+			<p>
+				<code>/plugins/@PLUGIN_KEY@/project/v_example1</code>
+			</p>
+			<p>The most basic of the examples, this one simply displays text.</p>
+			<h4><a href="../@PLUGIN_KEY@/un_run2">Example 2 - HTML</a></h4>
+			<p>
+				<code>/plugins/@PLUGIN_KEY@/project/v_example2</code>
+			</p>
+			<p>
+				This example shows how one might create a simple mockup of a
+				plugin page using nothing more than simple static HTML.
+			</p>
+			<h4><a href="../@PLUGIN_KEY@/un_run3">Example 3 - property expansion</a></h4>
+			<p>
+				<code>/plugins/@PLUGIN_KEY@/project/v_example3</code>
+			</p>
+			<p>
+				Example 3 demonstrates how one can use property expansion
+				combined with /javascript special property references in order
+				to transform a simple static HTML page into a simple dynamic page.
+				In this example, in addition to static information, additional
+				content is being pulled from properties contained in two other
+				projects.
+			</p>
+			<p>
+				You can see this in action by adding various HTML content
+				into the /projects/Default/news and /project/EC-Examples/news
+				properties.
+			</p>
+			<p>
+				This powerful technique allows you to create a plugin
+				prototype that can actually work, without having to write a line
+				of code.  Refer to example 1, and consider how various build
+				and deploy procedures might be able to write information into
+				properties and property sheets in such a way that the content
+				displayed in that page might actually be real, live content.
+			</p>
+			<h4><a href="../@PLUGIN_KEY@/un_run4">Example 4 - perl</a></h4>
+			<p>
+				<code>/plugins/@PLUGIN_KEY@/project/v_example4</code>
+			</p>
+			<p>
+				Some applications are best served by writing actual code.
+				Example 3 shows how to have Perl logic generate the HTML to be
+				displayed. Also noteworthy is the example of how to properly
+				HTML-encode text that is sent to the browser.
+			</p>
+			<h4><a href="../@PLUGIN_KEY@/un_run5">Example 5 - perl jobs</a></h4>
+			<p>
+				<code>/plugins/@PLUGIN_KEY@/project/v_example5</code>
+			</p>
+			<p>
+				Example 5 is a more ambitious bit of Perl logic.  The use case
+				addressed by this example is the need to be able to display, at
+				a glance, the status of many, many jobs on the system at the same
+				time.  The jobs tab is often used for this purpose, but when the
+				number of potentially-active jobs is very large, scrolling and
+				pagination gets in the way.
+			</p>
+			<p>
+				This example demonstrates how to use the ec-perl API from
+				within the plugin, how to process the result set from a getJobs
+				(or findObjects) call, and also illustrates how one can create
+				and embed hyperlinks to other Commander pages into the generated
+				HTML.
+			</p>
+			<h4><a href="../@PLUGIN_KEY@/un_run6">Example 6 - embedded javascript</a></h4>
+			<p>
+				<code>/plugins/@PLUGIN_KEY@/project/v_example6</code>
+			</p>
+			<p>
+				Example 6 adds dynamic refresh to the previous example by
+				embedded javascript using the &lt;script&gt; tag.
+			</p>
+			<h4><a href="../@PLUGIN_KEY@/un_run7">Example 7 - Custom Parameter</a></h4>
+			<p>
+				<code>/plugins/@PLUGIN_KEY@/project/v_example7</code>
+			</p>
+			<p>
+				Example 7 demonstrates how to write a custom parameter plugin.
+				When correctly configured, this page will appear when a specific
+				Commander procedure is run from any place in the Commander Web UI.
+			</p>
+			<p>
+				In addition to setting the "v" property correctly,
+				one other step must be performed.  It is necessary to set the
+				"customType" property on the procedure in question in
+				order to tell the Commander UI that we want this plugin to execute
+				in place of the normal runProcedure parameter page.  This example
+				is written specifically for the
+				"Build-Test-Release Template With Sample Errors"
+				procedure in the "EC-Examples" project. Set the
+				"customType" property on that procedure to:
+				<code>$[/plugins/@PLUGIN_KEY@]/unRunProcedure</code>
+			</p>
+			<h4><a href="../@PLUGIN_KEY@/un_run8">Example 8 - Flot Charting</a></h4>
+			<p>
+				<code>/plugins/@PLUGIN_KEY@/project/v_example8</code>
+			</p>
+			<p>
+				An example using the javascript flot charting library.
+			</p>
+			<h4><a href="../@PLUGIN_KEY@/un_runa">Example a - DSL</a></h4>
+			<p>
+				<code>/plugins/@PLUGIN_KEY@/project/v_examplea</code>
+			</p>
+			<p>
+				Example a demonstrates how to use DSL to generate a report.  In
+				this case the DSL command getProjects() is used to create a table
+				listing of projects.
+			</p>
+		</div>
+
+		<h1 id="rns">Release Notes</h1>
+		<h2>@PLUGIN_KEY@-2.2.1</h2>
+		<ul>
+			<li>Format at Help according to EC plugin standards</li>
+		</ul>
+		<h2>@PLUGIN_KEY@-2.2.0</h2>
+		<ul>
+			<li>Add Unplug pages to Flow menu</li>
+		</ul>
+		<h2>@PLUGIN_KEY@-2.1.0</h2>
+		<ul>
+			<li>Add support for DSL page generation</li>
+		</ul>
+	</div>
+</body>
+</html>
