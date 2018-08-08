@@ -25,7 +25,8 @@ def stepsWithAttachedCredentials = [
 project pluginName, {
 
 	loadPluginProperties(pluginDir, pluginName)
-	loadProcedures(pluginDir, pluginKey, pluginName, stepsWithAttachedCredentials)
+	// No procedure for this plugin
+	// loadProcedures(pluginDir, pluginKey, pluginName, stepsWithAttachedCredentials)
 	//plugin configuration metadata
 	property 'ec_config', {
 		form = '$[' + "/projects/${pluginName}/procedures/CreateConfiguration/ec_parameterForm]"
