@@ -19,6 +19,10 @@ on your User Details page.  Select "Unplug View" from the "Tab View"
 list box, and click "OK".  A new sub-tab (named "Un") should appear
 beneath your normal Home tab in the UI.
 
+There are procedures provided to add Unplug pages to the Flow and Commander
+UIs. These procedures add all the examples in the Unplug plugin plus any
+user-created ones saved to the properties /server/unplug/{v,v0-9,va-z}.
+
 ## build
 <p>To build the plugin, you will need to have first to build
   <a href="https://github.com/electric-cloud/ecpluginbuilder">ecpluginbuilder</a>
