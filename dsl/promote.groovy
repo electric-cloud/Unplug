@@ -25,8 +25,27 @@ def stepsWithAttachedCredentials = [
 project pluginName, {
 
 	loadPluginProperties(pluginDir, pluginName)
-	// No procedure for this plugin
-	// loadProcedures(pluginDir, pluginKey, pluginName, stepsWithAttachedCredentials)
+	// Workaround for lack of property support in pluginwizard, PEFF-18
+	property "v_example0", description: "An empty page."
+	property "v_example1", description: "Text"
+	property "v_example2", description: "HTML"
+	property "v_example3", description: "Property expansion"
+	property "v_example4", description: "Perl"
+	property "v_example5", description: "Perl jobs"
+	property "v_example6", description: "Embedded javascript"
+	property "v_example7", description: "Custom Parameter"
+	property "v_example8", description: "Flot Charting"
+	property "v_example9", description: "An empty page."
+	property "v_examplea", description: "DSL"
+ 
+
+ 
+	
+	loadProcedures(pluginDir, pluginKey, pluginName, stepsWithAttachedCredentials)
+	
+	
+	
+	
 	//plugin configuration metadata
 	property 'ec_config', {
 		form = '$[' + "/projects/${pluginName}/procedures/CreateConfiguration/ec_parameterForm]"
@@ -44,3 +63,10 @@ project pluginName, {
 // version to this version. At the same time, also attach
 // the credentials to the required plugin procedure steps.
 upgrade(upgradeAction, pluginName, otherPluginName, stepsWithAttachedCredentials)
+
+/*
+transaction {
+	runProcedure projectName: pluginName, procedureName "Add Unplug to Commander Menu.groovy"
+	runProcedure projectName: pluginName, procedureName "Add Unplug to Flow Menu.groovy"
+}
+*/
